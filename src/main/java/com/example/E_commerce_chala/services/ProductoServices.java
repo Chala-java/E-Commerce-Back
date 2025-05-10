@@ -14,8 +14,6 @@ public class ProductoServices {
 
 @Autowired
 IDProductoRepository repository;
-//aqui llamas al repository por eso lo llamas y le agregas
-// una variable para llamarlo cuando necesites
 
 
     public Producto guardarProducto (Producto datosProducto) throws Exception{
