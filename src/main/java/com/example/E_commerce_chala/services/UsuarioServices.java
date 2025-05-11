@@ -77,4 +77,26 @@ public class UsuarioServices {
             throw new Exception("Error eliminando usuario: " + e.getMessage());
         }
     }
+
+    public Usuario validarCredenciales(String correoElectronico, String contrasena) throws Exception{
+        Optional<Usuario> usuarioOptional = usuarioRepository.findByCorreoElectronico(correoElectronico);
+        if (usuarioOptional.isPresent()){
+            Usuario usuario = usuarioOptional.get();
+            if (usuario.getContrasena().equals(contrasena)){
+                return usuario;
+            } else {
+            throw new Exception("Contraseña incorrecta");
+        }
+        }else {
+            throw new Exception("Usuario no encontrado");
+        }
+    }
+
+
+
+
+
+
+
+
 }
